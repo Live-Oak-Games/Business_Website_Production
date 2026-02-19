@@ -40,44 +40,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Contact form handling with fetch
-  const contactForm = document.getElementById('contact-form');
-  if (contactForm) {
-    contactForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const btn = contactForm.querySelector('button[type="submit"]');
-      const originalText = btn.textContent;
-      btn.textContent = 'Sending...';
-      btn.disabled = true;
-
-      try {
-        const response = await fetch(contactForm.action, {
-          method: 'POST',
-          body: new FormData(contactForm),
-          headers: { 'Accept': 'application/json' },
-        });
-
-        if (response.ok) {
-          contactForm.reset();
-          btn.textContent = 'Sent!';
-          btn.classList.remove('bg-accent-blue', 'hover:bg-accent-blue/90');
-          btn.classList.add('bg-accent-green');
-          setTimeout(() => {
-            btn.textContent = originalText;
-            btn.disabled = false;
-            btn.classList.remove('bg-accent-green');
-            btn.classList.add('bg-accent-blue', 'hover:bg-accent-blue/90');
-          }, 3000);
-        } else {
-          throw new Error('Form submission failed');
-        }
-      } catch {
-        btn.textContent = 'Failed - Try Again';
-        btn.disabled = false;
-        setTimeout(() => {
-          btn.textContent = originalText;
-        }, 3000);
-      }
-    });
-  }
 });
