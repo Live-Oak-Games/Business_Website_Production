@@ -10,7 +10,7 @@
   <!-- Open Graph -->
   <meta property="og:title" content="Live Oak Games">
   <meta property="og:description" content="Independent game studio crafting immersive experiences.">
-  <meta property="og:image" content="https://liveoak.games/assets/logo.png">
+  <meta property="og:image" content="https://liveoak.games/assets/hero.png">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://liveoak.games">
 
@@ -18,7 +18,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Live Oak Games">
   <meta name="twitter:description" content="Independent game studio crafting immersive experiences.">
-  <meta name="twitter:image" content="https://liveoak.games/assets/logo.png">
+  <meta name="twitter:image" content="https://liveoak.games/assets/hero.png">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +26,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
 
   <!-- Content Security Policy -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; upgrade-insecure-requests;">
 
   <!-- Tailwind CSS (self-hosted production build) -->
   <link rel="stylesheet" href="css/tailwind.css">
@@ -40,7 +40,23 @@
   <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
       <a href="#hero" class="flex items-center gap-3 cursor-pointer">
-        <img src="assets/logo.png" alt="Live Oak Games" class="h-10 w-10 rounded-full object-cover mix-blend-lighten">
+        <svg class="h-10 w-10" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="Live Oak Games">
+          <defs>
+            <radialGradient id="nav-canopy" cx="50%" cy="40%" r="50%">
+              <stop offset="0%" stop-color="#6BBF4A"/>
+              <stop offset="70%" stop-color="#00D4FF" stop-opacity="0.6"/>
+              <stop offset="100%" stop-color="#1E90FF" stop-opacity="0.2"/>
+            </radialGradient>
+            <filter id="nav-glow"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <ellipse cx="50" cy="36" rx="28" ry="22" fill="url(#nav-canopy)" filter="url(#nav-glow)" opacity="0.9"/>
+          <ellipse cx="42" cy="38" rx="16" ry="14" fill="#6BBF4A" opacity="0.3"/>
+          <ellipse cx="58" cy="35" rx="14" ry="12" fill="#00D4FF" opacity="0.2"/>
+          <path d="M47 55 L48.5 40 Q50 34 50 30 Q50 34 51.5 40 L53 55 Q50 57 47 55Z" fill="#5C4033" opacity="0.8"/>
+          <path d="M47 55 Q40 60 32 63" fill="none" stroke="#5C4033" stroke-width="1.5" opacity="0.4" stroke-linecap="round"/>
+          <path d="M53 55 Q60 60 68 63" fill="none" stroke="#5C4033" stroke-width="1.5" opacity="0.4" stroke-linecap="round"/>
+          <ellipse cx="50" cy="58" rx="20" ry="3" fill="#6BBF4A" opacity="0.15" filter="url(#nav-glow)"/>
+        </svg>
         <span class="font-heading font-bold text-lg text-text-primary hidden sm:inline">Live Oak Games</span>
       </a>
       <div class="hidden md:flex items-center gap-8">
@@ -62,21 +78,21 @@
   </nav>
 
   <!-- Hero Section -->
-  <section id="hero" class="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden">
-    <div class="star-field" aria-hidden="true">
-      <div class="stars stars-sm"></div>
-      <div class="stars stars-md"></div>
-      <div class="stars stars-lg"></div>
+  <section id="hero" class="relative min-h-screen flex flex-col items-end justify-end overflow-hidden">
+    <!-- Hero background image -->
+    <picture>
+      <source srcset="assets/hero.webp" type="image/webp">
+      <img src="assets/hero.png" alt="" class="absolute inset-0 w-full h-full object-cover object-center" aria-hidden="true">
+    </picture>
+    <!-- Gradient overlays: top for navbar readability, bottom for text + blend into next section -->
+    <div class="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-bg-primary/80 to-transparent" aria-hidden="true"></div>
+    <div class="absolute inset-x-0 bottom-0 h-72 bg-gradient-to-t from-bg-primary via-bg-primary/90 to-transparent" aria-hidden="true"></div>
+    <!-- Text content anchored to bottom -->
+    <div class="relative z-10 text-center w-full px-6 pb-20">
+      <h1 class="font-heading text-4xl sm:text-5xl md:text-7xl font-bold mb-3 text-text-primary drop-shadow-lg">Live Oak Games</h1>
+      <p class="text-lg sm:text-xl text-text-muted max-w-xl mx-auto drop-shadow-md">Crafting immersive worlds rooted in imagination.</p>
     </div>
-    <div class="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true">
-      <div class="orbital-ring"></div>
-    </div>
-    <div class="relative z-10 text-center max-w-3xl">
-      <img src="assets/logo.png" alt="Live Oak Games - A majestic oak tree set against a cosmic backdrop with planets and stars" class="w-56 h-56 sm:w-72 sm:h-72 mx-auto mb-4 object-contain mix-blend-lighten">
-      <h1 class="font-heading text-4xl sm:text-5xl md:text-6xl font-bold mb-3 text-text-primary">Live Oak Games</h1>
-      <p class="text-lg sm:text-xl text-text-muted max-w-xl mx-auto mb-8">Crafting immersive worlds rooted in imagination.</p>
-    </div>
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10">
       <a href="#about" class="text-text-muted hover:text-accent-cyan transition-colors duration-200 cursor-pointer" aria-label="Scroll to about section">
         <svg class="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
