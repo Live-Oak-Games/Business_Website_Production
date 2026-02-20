@@ -78,11 +78,11 @@
   </nav>
 
   <!-- Hero Section -->
-  <section id="hero" class="relative min-h-screen flex flex-col items-end justify-end overflow-hidden">
+  <section id="hero" class="relative min-h-screen flex flex-col items-center justify-end overflow-hidden">
     <!-- Hero background image -->
-    <picture>
+    <picture class="absolute inset-0">
       <source srcset="assets/hero.webp" type="image/webp">
-      <img src="assets/hero.png" alt="" class="absolute inset-0 w-full h-full object-cover object-center" aria-hidden="true">
+      <img src="assets/hero.png" alt="" class="w-full h-full object-cover object-top" aria-hidden="true">
     </picture>
     <!-- Gradient overlays: top for navbar readability, bottom for text + blend into next section -->
     <div class="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-bg-primary/80 to-transparent" aria-hidden="true"></div>
